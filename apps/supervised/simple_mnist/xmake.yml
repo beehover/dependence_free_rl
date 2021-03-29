@@ -1,0 +1,10 @@
+simple_mnist:
+  main:
+    true
+  srcs:
+    - simple_mnist.cc
+  deps:
+    - //xeno/logging
+    - //xylo/mnist
+    - //xylo/nn
+    - //xylo/tensor

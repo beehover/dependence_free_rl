@@ -1,0 +1,11 @@
+xmake:
+  main: true
+  srcs:
+    - xmake.cc
+  deps:
+    - //xeno/logging
+    - //xeno/string
+    - //xeno/sys/file_descriptor
+    - //xeno/sys/filesystem
+    - //xeno/time
+    - //xeno/yaml

@@ -1,0 +1,43 @@
+bin_packing:
+  hdrs:
+    - bin_packing.h
+  deps:
+    - //xylo/nn
+    - //xylo/rl
+    - //xylo/tensor
+
+mnist:
+  hdrs:
+    - mnist.h
+  deps:
+    - //xeno/endian
+    - //xeno/sys/file_descriptor
+    - //xylo/tensor
+
+nn:
+  hdrs:
+    - nn.h
+  deps:
+    - //xeno/string
+    - //xylo/tensor
+
+rl:
+  hdrs:
+    - rl.h
+  deps:
+    - //xylo/nn
+
+tensor:
+  hdrs:
+    - tensor.h
+  srcs:
+    - tensor.cc
+  deps:
+    - //xeno/exception
+    - //xeno/logging
+
+policy_gradient:
+  hdrs:
+    - policy_gradient.h
+  deps:
+    - //xylo/rl

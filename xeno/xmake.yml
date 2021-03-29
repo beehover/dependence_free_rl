@@ -1,0 +1,39 @@
+endian:
+  hdrs:
+    - endian.h
+
+exception:
+  hdrs:
+    - exception.h
+  deps:
+    - //xeno/logging
+
+json:
+  hdrs:
+    - json.h
+
+logging:
+  hdrs:
+    - logging.h
+  srcs:
+    - logging.cc
+
+string:
+  hdrs:
+    - string.h
+
+time:
+  hdrs:
+    - time.h
+
+yaml:
+  hdrs:
+    - yaml.h
+  deps:
+    - //xeno/exception
+
+configuration:
+  hdrs:
+    - configuration.h
+  deps:
+    - //xeno/yaml

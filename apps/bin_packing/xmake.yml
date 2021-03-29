@@ -1,0 +1,90 @@
+bin_packing:
+  hdrs:
+    - bin_packing.h
+  deps:
+    - //xylo/nn
+    - //xylo/rl
+    - //xylo/tensor
+
+pg_test:
+  main: true
+  srcs:
+    - pg_test.cc
+  deps:
+    - //xeno/sys/thread
+    - //xylo/bin_packing
+    - //xylo/nn
+    - //xylo/policy_gradient
+    - //xylo/tensor
+
+ac_test:
+  main: true
+  srcs:
+    - ac_test.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xeno/sys/thread
+    - //xylo/nn
+    - //xylo/policy_gradient
+    - //xylo/tensor
+
+ppo_test:
+  main: true
+  srcs:
+    - ppo_test.cc
+  deps:
+    - //xeno/sys/thread
+    - //xylo/bin_packing
+    - //xylo/nn
+    - //xylo/policy_gradient
+    - //xylo/tensor
+
+ppo2_test:
+  main: true
+  srcs:
+    - ppo2_test.cc
+  deps:
+    - //xeno/sys/thread
+    - //xylo/bin_packing
+    - //xylo/nn
+    - //xylo/policy_gradient
+    - //xylo/tensor
+
+random_agent:
+  main: true
+  srcs:
+    - random_agent.cc
+  deps:
+    - //xylo/bin_packing
+
+bestfit_agent:
+  main: true
+  srcs:
+    - bestfit_agent.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xylo/tensor
+
+firstfit_agent:
+  main: true
+  srcs:
+    - firstfit_agent.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xylo/tensor
+
+minwaste_agent:
+  main: true
+  srcs:
+    - minwaste_agent.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xylo/tensor
+
+deep_agent:
+  main: true
+  srcs:
+    - deep_agent.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xylo/tensor

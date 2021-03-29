@@ -1,0 +1,27 @@
+thread:
+  hdrs:
+    - thread.h
+  srcs:
+    - thread.cc
+  deps:
+    - //xeno/logging
+
+file_descriptor:
+  hdrs:
+    - file_descriptor.h
+
+filesystem:
+  hdrs:
+    - filesystem.h
+
+io:
+  hdrs:
+    - io.h
+
+mutex:
+  hdrs:
+    - mutex.h
+
+semaphore:
+  hdrs:
+    - semaphore.h
