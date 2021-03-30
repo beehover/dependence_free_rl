@@ -73,4 +73,7 @@ sudo apt install python3-pip
 pip3 install pyyaml
 ```
 
+Bash should come by default for Ubuntu.
 
+MathJax test
+\\[ x = {-b \pm \sqrt{b^2-4ac} \over 2a} \\]
