@@ -96,7 +96,7 @@ policy gradient), actor-critic and PPO (proximial policy optimization). These
 implementations are all located in `//xylo/policy_gradient.h`.
 
 If you are new to reinforcement learning, look into
-[docs/rl_algo_description.md](https://github.com/beehover/dependence_free_rl/blob/main/docs/rl_algo_description.md)
+[docs/rl_algo_description.md](docs/rl_algo_description.md)
 for explanations of the algorithms.
 
 ## Bin Packing
