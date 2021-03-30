@@ -17,11 +17,3 @@ filesystem:
 io:
   hdrs:
     - io.h
-
-mutex:
-  hdrs:
-    - mutex.h
-
-semaphore:
-  hdrs:
-    - semaphore.h

@@ -57,14 +57,8 @@ def do_cpp(name, props):
     OPT = '-O3'
     G = '-g0'
     STD = '-std=c++20'
-    AVX = '-mavx'
     INCLUDE = '-I' + str(repo_abs_path())
-    INCLUDE2 = '-I/usr/local/cuda-11.2/include/'
     PTHREAD = '-pthread'
-    LIBRARY = '-L/usr/local/cuda-11.2/lib64/'
-    OPENSSL = '-lssl'
-    CRYPTO = '-lcrypto'
-    CUDA_RUNTIME = '-lcudart'
 
     if 'main' not in props:
         props['main'] = False
@@ -94,9 +88,7 @@ def do_cpp(name, props):
             OPT,
             # G,
             STD,
-            AVX,
             INCLUDE,
-            INCLUDE2,
             '-c',
             str(src_path),
             '-o',
@@ -113,10 +105,7 @@ def do_cpp(name, props):
     # Link everything or archive everything.
     out_name = prefix_to_abs_out_name(name)
     if main:
-        cmd_run([
-            CC, PTHREAD, OPENSSL, CRYPTO, CUDA_RUNTIME, LIBRARY, '-o',
-            str(out_name)
-        ] + objects)
+        cmd_run([CC, PTHREAD, '-o', str(out_name)] + objects)
 
     else:
         cmd_run([AR, 'rcsuUPT', str(out_name.with_suffix('.a'))] + objects)
