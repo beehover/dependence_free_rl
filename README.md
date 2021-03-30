@@ -76,4 +76,4 @@ pip3 install pyyaml
 Bash should come by default for Ubuntu.
 
 MathJax test
-\\[ x = {-b \pm \sqrt{b^2-4ac} \over 2a} \\]
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
