@@ -61,9 +61,9 @@ We currently depend on a Bash script for that.
 
 ## File I/O
 Since the C++ standard doesn't provide a native I/O API, we do write our own I/O
-library, located at `//xeno/sys` in the source tree. This particular directory
-assumes a UNIX-like environment. If I/O is ever required (such as loading
-weights from a file) then we would be assuming a POSIX compliant system
+library, located at [//xeno/sys](xeno/sys) in the source tree. This particular
+directory assumes a UNIX-like environment. If I/O is ever required (such as
+loading weights from a file) then we would be assuming a POSIX compliant system
 interface.
 
 # Installing Dependencies
@@ -96,21 +96,30 @@ algorithms. _Apps_ currently contains one reinforcement learning application,
 bin packing in the context of cluster scheduling.
 
 ## Reinforcement Learning
-We have currently implemented 3 policy gradient algorithms, REINFORCE (or simply
-policy gradient), actor-critic and PPO (proximial policy optimization). These
-implementations are all located in `//xylo/policy_gradient.h`.
+We have currently implemented 3 policy gradient algorithms:
+* REINFORCE (or simply policy gradient)
+* actor-critic
+* PPO (proximial policy optimization)
 
-If you are new to reinforcement learning, look into
-[docs/rl_algo_description.md](docs/rl_algo_description.md)
-for explanations of the algorithms.
+These implementations are all located in
+[//xylo/policy_gradient.h](xylo/policy_gradient.h). There is also a
+`//xylo/rl.h` that provides more general base classes for both policy gradient
+and value-based algorithms such as DQN. Implementing value-based methods will be
+our future investigation, as we feel state-of-the-art policy gradient methods
+tend to outperform DQN.
+
+Look into [docs/rl_algo_description.md](docs/rl_algo_description.md) for
+the design and the code structure of the implementations.
 
 ## Bin Packing
 As we don't have access to the OpenAI gym, we are testing out our algorithms on
 an interesting application -- bin packing. [Bin
-packing](https://en.wikipedia.org/wiki/Bin_packing_problem) itself is a
-NP-complete problem. In the cluster scheduling context, people often run into
-even more challenging variants, such as multi-dimensional packing. The study of
-the bin packing problem itself is sophisticated enough, and we are currently
-expanding it into a research paper.  Look in
+packing](https://en.wikipedia.org/wiki/Bin_packing_problem) itself is an
+interesting NP-complete problem. In the cluster scheduling context, people often
+run into even more challenging variants, such as multi-dimensional packing. We
+found the study of the bin packing problem itself is sophisticated enough, and
+we are currently expanding it into a research paper.  Look in
 [docs/binpacking.md](docs/binpacking.md) for the study. You can go into
-`//apps/binpacking` to play with some training code while reading the doc. 
+[//apps/binpacking](apps/binpacking) to play with some training code while
+reading the doc. The binpacking document will guide you through the build and
+command execution.
