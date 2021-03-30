@@ -88,8 +88,7 @@ is a general purpose C++ that covers utilities like logging and string
 manipulation and so on. _Xylo_ is a numerical library that includes basic
 tensor/matrix operations, neural network layers, and some reinforcement learning
 algorithms. _Apps_ currently contains one reinforcement learning application,
-bin packing in the context of cluster scheduling. Look in
-[docs/binpacking.md](docs/binpacking.md) for the study.
+bin packing in the context of cluster scheduling.
 
 ## Reinforcement Learning
 We have currently implemented 3 policy gradient algorithms, REINFORCE (or simply
@@ -107,4 +106,6 @@ packing](https://en.wikipedia.org/wiki/Bin_packing_problem) itself is a
 NP-complete problem. In the cluster scheduling context, people often run into
 even more challenging variants, such as multi-dimensional packing. The study of
 the bin packing problem itself is sophisticated enough, and we are currently
-expanding it into a research paper.
+expanding it into a research paper.  Look in
+[docs/binpacking.md](docs/binpacking.md) for the study. You can go into
+`//apps/binpacking` to play with some training code while reading the doc. 
