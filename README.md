@@ -96,8 +96,8 @@ policy gradient), actor-critic and PPO (proximial policy optimization). These
 implementations are all located in `//xylo/policy_gradient.h`.
 
 If you are new to reinforcement learning, look into
-[docs/rl_algo_description.md](docs/rl_algo_description.md) for explanations of
-the algorithms.
+[docs/rl_algo_description.md](https://github.com/beehover/dependence_free_rl/blob/main/docs/rl_algo_description.md)
+for explanations of the algorithms.
 
 ## Bin Packing
 As we don't have access to the OpenAI gym, we are testing out our algorithms on
@@ -107,5 +107,6 @@ NP-complete problem. In the cluster scheduling context, people often run into
 even more challenging variants, such as multi-dimensional packing. The study of
 the bin packing problem itself is sophisticated enough, and we are currently
 expanding it into a research paper.  Look in
-[docs/binpacking.md](docs/binpacking.md) for the study. You can go into
-`//apps/binpacking` to play with some training code while reading the doc. 
+[docs/binpacking.md](https://github.com/beehover/dependence_free_rl/blob/main/docs/binpacking.md)
+for the study. You can go into `//apps/binpacking` to play with some training
+code while reading the doc. 
