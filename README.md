@@ -47,16 +47,16 @@ That means that we have a hard dependency on Clang now, which will gradually
 change as C++20 support slowly rolls out.
 
 ## Python and Shell
-We write our own build system, which means that we don't depent on large
-build systems like [CMake](https://cmake.org/), which means that we're not
-subject to their limitations. However, in order to build our build system, we
-require that the environment has Python3 intalled with YAML support. Currently
-we also assume we can set environment variables for executing our build scripts
-and executables. We currently depend on a Bash script for that.
+We write our own build system, instead of using large build systems like
+[CMake](https://cmake.org/), which means that we're not subject to their
+limitations. However, in order to build our build system, we require that the
+environment has Python3 intalled with YAML support. Currently we also assume we
+can set environment variables for executing our build scripts and executables.
+We currently depend on a Bash script for that.
 
 ## File I/O
 Since the C++ standard doesn't provide a native I/O API, we do write our own I/O
-library, located at //xeno/sys in the source tree. This particular directory
+library, located at `//xeno/sys` in the source tree. This particular directory
 assumes a UNIX-like environment. If I/O is ever required (such as loading
 weights from a file) then we would be assuming a POSIX compliant system
 interface.
@@ -64,7 +64,9 @@ interface.
 # Installing Dependencies
 Currently all development and testing are done on a Ubuntu20.04 box. In this
 environment, use the following command to install Clang:
-```sudo apt install clang-11```
+```
+sudo apt install clang-11
+```
 
 Python3 can be installed through:
 ```
@@ -75,7 +77,34 @@ pip3 install pyyaml
 
 Bash should come by default for Ubuntu.
 
-MathJax test
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+[//]: # (MathJax test)
+[//]: # (<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">)
 
-<img src="https://render.githubusercontent.com/render/math?math=x = {-b \pm \sqrt{b^2-4ac} \over 2a}">
+[//]: # (<img src="https://render.githubusercontent.com/render/math?math=x = {-b \pm \sqrt{b^2-4ac} \over 2a}">)
+
+# Look Around
+Aside from the build system, there are 3 major directories of the code. _Xeno_
+is a general purpose C++ that covers utilities like logging and string
+manipulation and so on. _Xylo_ is a numerical library that includes basic
+tensor/matrix operations, neural network layers, and some reinforcement learning
+algorithms. _Apps_ currently contains one reinforcement learning application,
+bin packing in the context of cluster scheduling. Look in
+[docs/binpacking.md](docs/binpacking.md) for the study.
+
+## Reinforcement Learning
+We have currently implemented 3 policy gradient algorithms, REINFORCE (or simply
+policy gradient), actor-critic and PPO (proximial policy optimization). These
+implementations are all located in `//xylo/policy_gradient.h`.
+
+If you are new to reinforcement learning, look into
+[docs/rl_algo_description.md](docs/rl_algo_description.md) for explanations of
+the algorithms.
+
+## Bin Packing
+As we don't have access to the OpenAI gym, we are testing out our algorithms on
+an interesting application -- bin packing. [Bin
+packing](https://en.wikipedia.org/wiki/Bin_packing_problem) itself is a
+NP-complete problem. In the cluster scheduling context, people often run into
+even more challenging variants, such as multi-dimensional packing. The study of
+the bin packing problem itself is sophisticated enough, and we are currently
+expanding it into a research paper.
