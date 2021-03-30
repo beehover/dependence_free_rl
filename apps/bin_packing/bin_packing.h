@@ -4,7 +4,6 @@
 #include <random>
 #include <sstream>
 
-#include <xylo/dqn.h>
 #include <xylo/nn.h>
 #include <xylo/policy_gradient.h>
 
@@ -147,15 +146,6 @@ public:
       : xylo::kl_ppo_learner<action, observation>(rb, action_model,
                                                   action_optimizer, value_model,
                                                   value_optimizer, gamma) {}
-};
-
-class dqn_learner : public xylo::dqn_learner<action, observation> {
-public:
-  dqn_learner(xylo::replay_buffer<action, observation> &rb,
-              xylo::model &q_model, xylo::optimizer &q_optimizer,
-              float gamma = 0.99)
-      : xylo::dqn_learner<action, observation>(rb, q_model, q_optimizer,
-                                               gamma) {}
 };
 
 } // namespace bp

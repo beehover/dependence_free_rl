@@ -76,7 +76,7 @@ int main() {
       bp::environment env;
       xylo::replay_buffer<bp::action, bp::observation> rb;
       bp::agent agent(policy, env, rb);
-      std::size_t num_episodes = steps > 10000 ? 10000 : 100;
+      std::size_t num_episodes = 100;
       for (int i = 0; i < num_episodes; ++i) {
         agent.play_one_episode();
       }
@@ -85,16 +85,6 @@ int main() {
           xylo::total_rewards<bp::action, bp::observation>(experience) /
           num_episodes;
       lg() << "round " << steps << " " << avg_rewards;
-
-      if (avg_rewards > 26.5) {
-        std::string filename =
-            xeno::string::strcat("weights.", weights_file_no++);
-        xeno::sys::file f = xeno::sys::file::open_to_append(filename);
-        xeno::sys::buffered_blocking_io<xeno::sys::file> io(f);
-        xylo::vector v = action_model.parameters();
-        std::span<float> s(v.begin(), v.end());
-        io.assured_write(std::as_bytes(s));
-      }
 
       rb.forget();
     }

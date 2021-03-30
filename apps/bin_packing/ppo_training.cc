@@ -5,17 +5,16 @@
 
 #include <apps/bin_packing/bin_packing.h>
 
-using trajectory = xylo::trajectory<bp::action, bp::observation>;
-
 int main() {
   xylo::model action_model;
-  action_model.add_layer(std::make_unique<xylo::convolution1d_1_layer>(4, 64));
+  action_model.add_layer(std::make_unique<xylo::convolution1d_1_layer>(4, 128));
   action_model.add_layer(std::make_unique<xylo::relu_activation>());
-  action_model.add_layer(std::make_unique<xylo::convolution1d_1_layer>(64, 32));
+  action_model.add_layer(
+      std::make_unique<xylo::convolution1d_1_layer>(128, 64));
   action_model.add_layer(std::make_unique<xylo::relu_activation>());
-  action_model.add_layer(std::make_unique<xylo::convolution1d_1_layer>(32, 1));
-  action_model.add_layer(std::make_unique<xylo::softmax_cross_entropy_layer>());
-  xylo::sgd_optimizer action_optimizer(action_model, 1e-5);
+  action_model.add_layer(std::make_unique<xylo::convolution1d_1_layer>(64, 1));
+  action_model.add_layer(std::make_unique<xylo::softmax_layer>());
+  xylo::sgd_optimizer action_optimizer(action_model, 1e-4);
 
   xylo::model value_model;
   value_model.add_layer(
@@ -24,12 +23,12 @@ int main() {
   value_model.add_layer(std::make_unique<xylo::full_layer>(64, 32));
   value_model.add_layer(std::make_unique<xylo::relu_activation>());
   value_model.add_layer(std::make_unique<xylo::full_layer>(32, 1));
-  xylo::sgd_optimizer value_optimizer(value_model, 1e-4);
+  xylo::sgd_optimizer value_optimizer(value_model, 1e-5);
 
   xylo::replay_buffer<bp::action, bp::observation> replay_buffer;
 
-  constexpr int num_workers = 16;
-  constexpr int steps_per_worker = 8;
+  constexpr int num_workers = 8;
+  constexpr int steps_per_worker = 4;
 
   std::vector<bp::environment> envs;
   std::vector<bp::agent> agents;
@@ -43,8 +42,8 @@ int main() {
     agents.emplace_back(policy, envs[i], replay_buffer);
   }
 
-  bp::ac_learner learner(replay_buffer, action_model, action_optimizer,
-                         value_model, value_optimizer, 0.99);
+  bp::ppo_learner learner(replay_buffer, action_model, action_optimizer,
+                          value_model, value_optimizer, 0.99);
 
   std::list<xeno::sys::thread> threads;
   for (int i = 0; i < num_workers; ++i) {
@@ -78,7 +77,6 @@ int main() {
       lg() << "round " << steps << " "
            << xylo::total_rewards<bp::action, bp::observation>(experience) /
                   100.0;
-
       rb.forget();
     }
   }

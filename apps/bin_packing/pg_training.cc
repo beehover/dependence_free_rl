@@ -1,8 +1,9 @@
-#include "xylo/nn.h"
 #include <xeno/sys/thread.h>
 
-#include <xylo/bin_packing.h>
+#include <xylo/nn.h>
 #include <xylo/rl.h>
+
+#include <apps/bin_packing/bin_packing.h>
 
 using trajectory = xylo::trajectory<bp::action, bp::observation>;
 

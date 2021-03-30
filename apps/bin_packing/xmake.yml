@@ -6,21 +6,10 @@ bin_packing:
     - //xylo/rl
     - //xylo/tensor
 
-pg_test:
+pg_training:
   main: true
   srcs:
-    - pg_test.cc
-  deps:
-    - //xeno/sys/thread
-    - //xylo/bin_packing
-    - //xylo/nn
-    - //xylo/policy_gradient
-    - //xylo/tensor
-
-ac_test:
-  main: true
-  srcs:
-    - ac_test.cc
+    - pg_training.cc
   deps:
     - //apps/bin_packing/bin_packing
     - //xeno/sys/thread
@@ -28,24 +17,35 @@ ac_test:
     - //xylo/policy_gradient
     - //xylo/tensor
 
-ppo_test:
+ac_training:
   main: true
   srcs:
-    - ppo_test.cc
+    - ac_training.cc
   deps:
+    - //apps/bin_packing/bin_packing
     - //xeno/sys/thread
-    - //xylo/bin_packing
     - //xylo/nn
     - //xylo/policy_gradient
     - //xylo/tensor
 
-ppo2_test:
+ppo_training:
   main: true
   srcs:
-    - ppo2_test.cc
+    - ppo_training.cc
   deps:
+    - //apps/bin_packing/bin_packing
     - //xeno/sys/thread
-    - //xylo/bin_packing
+    - //xylo/nn
+    - //xylo/policy_gradient
+    - //xylo/tensor
+
+ppo2_training:
+  main: true
+  srcs:
+    - ppo2_training.cc
+  deps:
+    - //apps/bin_packing/bin_packing
+    - //xeno/sys/thread
     - //xylo/nn
     - //xylo/policy_gradient
     - //xylo/tensor
@@ -55,7 +55,8 @@ random_agent:
   srcs:
     - random_agent.cc
   deps:
-    - //xylo/bin_packing
+    - //apps/bin_packing/bin_packing
+    - //xylo/tensor
 
 bestfit_agent:
   main: true

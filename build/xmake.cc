@@ -197,13 +197,7 @@ std::string STD = "-std=c++20";
 std::string AVX = "-mavx";
 std::string FAST_MATH = "-ffast-math";
 std::string INCLUDE = xeno::string::strcat("-I", repo_abs_path.string());
-// std::string INCLUDE2 = "-I/usr/local/cuda-11.2/include/";
 std::string PTHREAD = "-pthread";
-// std::string LIBRARY = "-L/usr/local/cuda-11.2/lib64/";
-std::string OPENSSL = "-lssl";
-std::string CRYPTO = "-lcrypto";
-std::string ATOMIC = "-latomic";
-// std::string CUDA_RUNTIME = "-lcudart";
 } // namespace
 
 int build_dot_c(const fs::path &target, const fs::path &src) {
@@ -220,13 +214,7 @@ int build_dot_c(const fs::path &target, const fs::path &src) {
 }
 
 int link_binary(const fs::path &target, const std::vector<fs::path> &srcs) {
-  std::vector<std::string> cmd_vec{CC,
-                                   PTHREAD,
-                                   OPENSSL,
-                                   CRYPTO,
-                                   ATOMIC, /*CUDA_RUNTIME,*/
-                                   /*LIBRARY,*/ "-o",
-                                   target};
+  std::vector<std::string> cmd_vec{CC, PTHREAD, "-o", target};
   for (const auto &src : srcs) {
     cmd_vec.emplace_back(src.string());
   }
