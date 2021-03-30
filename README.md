@@ -107,6 +107,5 @@ NP-complete problem. In the cluster scheduling context, people often run into
 even more challenging variants, such as multi-dimensional packing. The study of
 the bin packing problem itself is sophisticated enough, and we are currently
 expanding it into a research paper.  Look in
-[docs/binpacking.md](https://github.com/beehover/dependence_free_rl/blob/main/docs/binpacking.md)
-for the study. You can go into `//apps/binpacking` to play with some training
-code while reading the doc. 
+[docs/binpacking.md](docs/binpacking.md) for the study. You can go into
+`//apps/binpacking` to play with some training code while reading the doc. 
