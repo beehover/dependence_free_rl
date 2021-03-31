@@ -10,12 +10,13 @@ This Wikipedia figure captions the reinforcement learning set up.
 
 ![RF diagram](Reinforcement_learning_diagram.svg)
 
-There is an *agent* that interacts with a *environment*. The agent perceives the
-environment's Markovian *states* and gives *actions* back to it. Each time an
-agent makes an action, the environment state will likely change, and the agent
-might receive a *reward* associated with the action. The agent makes a number of
-steps collecting the state, makes an action and receive a reward. The sequence
-of these steps is a *trajectory*. The span of the trajectory is a *horizon*.
+There is an **agent** that interacts with a **environment**. The agent perceives
+the environment's Markovian **states** and gives **actions** back to it. Each
+time an agent makes an action, the environment state will likely change, and the
+agent might receive a **reward** associated with the action. The agent makes a
+number of steps collecting the state, makes an action and receive a reward. The
+sequence of these steps is a **trajectory**. The span of the trajectory is a
+**horizon**.
 
 
 The basic objective of the learning is to maximize the rewards collected along
