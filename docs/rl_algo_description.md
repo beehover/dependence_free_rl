@@ -6,8 +6,10 @@ detailed review of the algorithms here I strongly recommend Lilian Weng's
 blog](https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html).
 
 ## Problem Formulation
-This Wikipedia figure captions the reinforcement learning set up.  ![RF
-diagram](https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg)
+This Wikipedia figure captions the reinforcement learning set up.
+
+![RF diagram](https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg)
+
 There is an *agent* that interacts with a *environment*. The agent perceives the
 environment's Markovian *states* and gives *actions* back to it. Each time an
 agent makes an action, the environment state will likely change, and the agent
