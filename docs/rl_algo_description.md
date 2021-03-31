@@ -6,15 +6,15 @@ detailed review of the algorithms here I strongly recommend Lilian Weng's
 blog](https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html).
 
 ## Problem Formulation
-This Wikipedia figure captions the reinforcement learning set up. There is an
-*agent* that interacts with a *environment*. The agent perceives the environment's
-Markovian *states* and gives *actions* back to it. Each time an agent makes an
-action, the environment state will likely change, and the agent might receive a
-*reward* associated with the action. The agent makes a number of steps
-collecting the state, makes an action and receive a reward. The sequence of
-these steps is a *trajectory*. The span of the trajectory is a *horizon*.
+This Wikipedia figure captions the reinforcement learning set up.  ![RF
+diagram](https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg)
+There is an *agent* that interacts with a *environment*. The agent perceives the
+environment's Markovian *states* and gives *actions* back to it. Each time an
+agent makes an action, the environment state will likely change, and the agent
+might receive a *reward* associated with the action. The agent makes a number of
+steps collecting the state, makes an action and receive a reward. The sequence
+of these steps is a *trajectory*. The span of the trajectory is a *horizon*.
 
-<img src="https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg">
 
 The basic objective of the learning is to maximize the rewards collected along
 the entire horizon. For episodic problems trajectories will reach a terminal
