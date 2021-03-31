@@ -1,5 +1,5 @@
 # Deep Reinforcement Learning Introduction
-Without any math formulas, we'll try to give a short and not-so-rigorous
+Without lengthy math formulas, we'll try to give a short and not-so-rigorous
 introduction for readers new to reinforcement learning. Experienced
 RL(reinforcement learning) users should skip to the design. For the detailed
 formula-rich review of the algorithms here I strongly recommend Lilian Weng's
@@ -55,16 +55,23 @@ results than PPO in our case study.
 ### REINFOCE
 REINFOCE is the vanilla policy gradient algorithm. In its simplest form, it has
 only one network. Its objective is the future rewards times the log probability
-of the action taken given a state. Through trial-and-error, we'll regress onto
-this objective and improve our policy.
+of the action taken given a state. I.e.
+
+<img src="https://render.githubusercontent.com/render/math?math=J(\theta) =
+E(log(\pi_\theta(a | s)) R^\pi)">
+
+Here <img src="https://render.githubusercontent.com/render/math?math=\theta"> is
+the network parameter. _R_ is the total future reward. And
+<img src="https://render.githubusercontent.com/render/math?math=\pi"> is the
+policy (action probability distribution given a state).  Through
+trial-and-error, we'll regress onto this objective and improve our policy.
 
 Using gradient ascend on this objective means that we'll make good actions more
 likely over time, and bad actions less likely. Take chess for example, the
-future reward will be either 1(win) or -1(lose) at the end of a game. For all
-the games we win in our trials, in the future we'll make all moves in the  won
-games more likely, and all moves in the lost games less likely. For non-binary
-results, the more rewards, the more likely the actions will be taken in the
-future.
+future reward will be either 1(win) or -1(lose) at the end of a game.
+Through trials, in the future we'll make all moves in the won games more likely,
+and all moves in the lost games less likely. For non-binary results, the more
+rewards, the more likely the actions will be taken in the future.
 
 In actual implementations rarely raw rewards are used, because there is too much
 variance. Advantages are used instead. Advantage means the difference between
@@ -73,4 +80,15 @@ given a state). This is equivalent to the original objective because the state
 value isn't dependent on the network parameters, and the gradient will be
 exactly the same.
 
-###
+### Actor Critic
+REINFOCE can be applied to a wide range of problems, because it doesn't really
+assume Markovian states. However, training REINFOCE is slow, because in our
+trials we need to wait for the episodes to be over to be able to make one step
+of gradient ascend.  Actor critic introduces one more network (critic network)
+that estimates state values, so that we won't have to wait for a terminal state
+to be able to estimate advantages.
+
+Our actor critic implementation incorporates [GAE (general advantage
+estimation)](https://danieltakeshi.github.io/2017/04/02/notes-on-the-generalized-advantage-estimation-paper/).
+This concept is hard to explain. We'll skip it here.
+
