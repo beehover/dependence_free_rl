@@ -8,7 +8,7 @@ blog](https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms
 ## Problem Formulation
 This Wikipedia figure captions the reinforcement learning set up.
 
-![RF diagram](docs/Reinforcement_learning_diagram.svg)
+![RF diagram](Reinforcement_learning_diagram.svg)
 
 There is an *agent* that interacts with a *environment*. The agent perceives the
 environment's Markovian *states* and gives *actions* back to it. Each time an
