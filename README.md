@@ -98,7 +98,7 @@ bin packing in the context of cluster scheduling.
 ## Reinforcement Learning
 We have currently implemented 3 policy gradient algorithms:
 * REINFORCE (or simply policy gradient)
-* actor-critic
+* Online actor-critic
 * PPO (proximial policy optimization)
 
 These implementations are all located in
@@ -120,6 +120,6 @@ run into even more challenging variants, such as multi-dimensional packing. We
 found the study of the bin packing problem itself is sophisticated enough, and
 we are currently expanding it into a research paper.  Look in
 [docs/binpacking.md](docs/binpacking.md) for the study. You can go into
-[//apps/binpacking](apps/binpacking) to play with some training code while
+[//apps/bin_packing](apps/bin_packing) to play with some training code while
 reading the doc. The binpacking document will guide you through the build and
 command execution.
