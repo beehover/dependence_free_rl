@@ -81,17 +81,18 @@ given a state). This is equivalent to the original objective because the state
 value isn't dependent on the network parameters, and the gradient will be
 exactly the same.
 
-### Actor Critic
+### Actor-Critic
 REINFOCE can be applied to a wide range of problems, because it doesn't really
 assume Markovian states. However, training REINFOCE is slow, because in our
 trials we need to wait for the episodes to be over to be able to make one step
-of gradient ascent.  Actor critic introduces one more network (critic network)
+of gradient ascent.  Actor-critic introduces one more network (critic network)
 that estimates state values, so that we won't have to wait for a terminal state
 to be able to estimate advantages.
 
 Our actor critic implementation incorporates [GAE (general advantage
-estimation)](https://danieltakeshi.github.io/2017/04/02/notes-on-the-generalized-advantage-estimation-paper/).
-This concept is hard to explain. We'll skip it here.
+estimation)](https://danieltakeshi.github.io/2017/04/02/notes-on-the-generalized-advantage-estimation-paper/),
+which generally helps learning performance.  This concept is hard to explain.
+We'll skip it here.
 
 ### PPO (Proximial Policy Optimization)
 Policy gradient methods in general suffers from a convergence problem, because
@@ -109,6 +110,11 @@ PPO is one of these methods. It has two flavors. The first clips update
 gradients when the policy changes too much. The second incurs a KL-divergence
 regularization loss term to penalize policies from differing. In this project we
 implement both.
+
+PPO can be applied to either REINFORCE or actor-critic. The original [PPO
+paper](https://arxiv.org/abs/1707.06347) was proposed with a actor-critic
+architecture. Therefore we base our PPO algorithm on the actor-critic
+implementation as well.
 
 # Design
 
