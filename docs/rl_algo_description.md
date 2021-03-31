@@ -59,7 +59,7 @@ REINFOCE is the vanilla policy gradient algorithm. In its simplest form, it has
 only one network. Its objective is the future rewards times the log probability
 of the action taken given a state. I.e.
 
-<img src="https://render.githubusercontent.com/render/math?math=J(\theta) = {E(\log(\pi_\theta(a | s)) R^\pi)}">
+<img src="https://render.githubusercontent.com/render/math?math={\nabla J(\theta)} = {\nabla \log(\pi_\theta(a | s)) \dot R^\pi}">
 
 Here <img src="https://render.githubusercontent.com/render/math?math=\theta"> is
 the network parameter. _R_ is the total future reward. And
