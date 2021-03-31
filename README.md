@@ -103,10 +103,10 @@ We have currently implemented 3 policy gradient algorithms:
 
 These implementations are all located in
 [//xylo/policy_gradient.h](xylo/policy_gradient.h). There is also a
-`//xylo/rl.h` that provides more general base classes for both policy gradient
-and value-based algorithms such as DQN. Implementing value-based methods will be
-our future investigation, as we feel state-of-the-art policy gradient methods
-tend to outperform DQN.
+[//xylo/rl.h](xylo/rl.h) that provides more general base classes for both policy
+gradient and value-based algorithms such as DQN. Implementing value-based
+methods will be our future investigation, as we feel state-of-the-art policy
+gradient methods tend to outperform DQN.
 
 Look into [docs/rl_algo_description.md](docs/rl_algo_description.md) for
 the design and the code structure of the implementations.

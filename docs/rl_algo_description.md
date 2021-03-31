@@ -14,8 +14,7 @@ action, the environment state will likely change, and the agent might receive a
 collecting the state, makes an action and receive a reward. The sequence of
 these steps is a *trajectory*. The span of the trajectory is a *horizon*.
 
-<img
-src="https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg">
+<img src="https://en.wikipedia.org/wiki/Reinforcement_learning#/media/File:Reinforcement_learning_diagram.svg">
 
 The basic objective of the learning is to maximize the rewards collected along
 the entire horizon. For episodic problems trajectories will reach a terminal
