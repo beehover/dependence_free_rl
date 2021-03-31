@@ -35,18 +35,20 @@ the total number of items that can be held in the bins given.
 
 ## Algorithms Implemented
 
-Popular deep RL algorithms are roughly in 2 camps: policy gradient and Q
-learning. A policy defines how an agent reacts to environment states. Policy
-gradient methods always have a model that takes in the state and spits out an
-action probability distribution. Through trial-and-error, these methods use
-gradient-ascend like methods to improve the policy over time so that better and
-better policies will be produced.
+Popular deep RL algorithms are roughly in 2 camps: **policy gradient** and
+**Q-learning**.
 
-Q-learning fits a function that estimates the optimal values of state-action
-pairs. The value of a state-action pair means the expected future rewards given
-a state and an action (or reaction) taken. This function is called Q-function. A
-Q-learning agent takes this value model and uses it to recommend the best
-actions without directly using a policy model.
+* Policy gradient: A policy defines how an agent reacts to environment states.
+  Policy gradient methods always have a model that takes in the state and spits
+  out an action probability distribution. Through trial-and-error, these methods
+  use gradient-ascend like methods to improve the policy over time so that
+  better and better policies will be produced.
+
+* Q-learning: Q-learning fits a function that estimates the optimal values of
+  state-action pairs. The value of a state-action pair means the expected future
+  rewards given a state and an action (or reaction) taken. This function is
+  called Q-function. A Q-learning agent takes this value model and uses it to
+  recommend the best actions without directly using a policy model.
 
 In this project we have implemented 3 policy gradient methods so far. Q-learning
 methods are under investigation, because so far they are not producing better
@@ -57,8 +59,7 @@ REINFOCE is the vanilla policy gradient algorithm. In its simplest form, it has
 only one network. Its objective is the future rewards times the log probability
 of the action taken given a state. I.e.
 
-<img src="https://render.githubusercontent.com/render/math?math=J(\theta) =
-E(log(\pi_\theta(a | s)) R^\pi)">
+<img src="https://render.githubusercontent.com/render/math?math=J(\theta) = {E(\log(\pi_\theta(a | s)) R^\pi)}">
 
 Here <img src="https://render.githubusercontent.com/render/math?math=\theta"> is
 the network parameter. _R_ is the total future reward. And
@@ -92,3 +93,7 @@ Our actor critic implementation incorporates [GAE (general advantage
 estimation)](https://danieltakeshi.github.io/2017/04/02/notes-on-the-generalized-advantage-estimation-paper/).
 This concept is hard to explain. We'll skip it here.
 
+### PPO (Proximial Policy Optimization)
+Policy gradient methods in general suffers from a convergence problem, because
+the regression onto the objective isn't really "regression" in the usual sense.
+The objective treats rewards 
