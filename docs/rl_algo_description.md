@@ -67,19 +67,21 @@ the network parameter. _R_ is the total future reward. And
 policy (action probability distribution given a state).  Through
 trial-and-error, we'll regress onto this objective and improve our policy.
 
-Using gradient ascent on this objective means that we'll make good actions more
-likely over time, and bad actions less likely. Take chess for example, the
-future reward will be either 1(win) or -1(lose) at the end of a game.
-Through trials, in the future we'll make all moves in the won games more likely,
-and all moves in the lost games less likely. For non-binary results, the more
+In training, using gradient ascent on this objective means that we'll make good
+actions more likely over time, and bad actions less likely. Take training chess
+playing for example.  We might play some games, gather some trial results and
+improve our policy using the result, and then reiterate. Since the future
+rewards are wins and loses in the end (say 1 and -1 numerically), through
+trials, in each iteration we'll make all moves in the won games more likely, and
+all moves in the lost games less likely. For non-binary results, the more
 rewards, the more likely the actions will be taken in the future.
 
-In actual implementations rarely raw rewards are used, because there is too much
-variance. Advantages are used instead. Advantage means the difference between
-the future reward through the action taken, and the state value (expected rewards
-given a state). This is equivalent to the original objective because the state
-value isn't dependent on the network parameters, and the gradient will be
-exactly the same.
+In actual implementations raw rewards are rarely used, because there is too much
+variance. They are usually replaced by advantages. Advantage means the
+difference between the future reward through the action taken, and the state
+value (expected rewards given a state). This is equivalent to the original
+objective because the state value isn't dependent on the network parameters, and
+the gradient will be exactly the same.
 
 ### Actor-Critic
 REINFOCE can be applied to a wide range of problems, because it doesn't really
