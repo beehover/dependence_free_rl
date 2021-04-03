@@ -126,7 +126,7 @@ description here is very much policy gradient oriented.
 These are the two basic entities interacting with each other in the basic RL
 setup and they are represented as abstract classes.
 
-In the code [//xylo//rl.h](xylo/rl.h) describes the interfaces. The environment
+In the code [//xylo//rl.h](../xylo/rl.h) describes the interfaces. The environment
 is responsible for methods of viewing the current state, and mutating the state
 given a certain action. The methods also takes in an agent ID, because the view
 to different agents might be slightly different, and actions from different
