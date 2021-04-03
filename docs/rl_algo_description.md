@@ -167,4 +167,4 @@ needs to provide is `to_vector`, which turns itself into a tensor.
 
 # Example
 Look into [//apps/bin_packing/bin_packing.h](../apps/bin_packing/bin_packing.h)
-for how the bin packing study uses these interfacts.
+for how the bin packing study uses these interfaces.
