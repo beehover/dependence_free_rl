@@ -24,7 +24,7 @@ Monte-Carlo search, NNUE only adopts a very lightweight model for online
 position evaluation in their minimax [Alpha-beta
 search](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
 [Lichess](https://lichess.org/), a prominent figure in online chess,
-incorporated NNUE in there own in-browser game analysis. This would require
+incorporated NNUE in their own in-browser game analysis. This would require
 compiling neural network models into [WebAssembly](https://webassembly.org/) for
 best performance.
 
@@ -115,7 +115,7 @@ the design and the code structure of the implementations.
 As we don't have access to the OpenAI gym, we are testing out our algorithms on
 an interesting application -- bin packing. [Bin
 packing](https://en.wikipedia.org/wiki/Bin_packing_problem) itself is an
-interesting NP-complete problem. In the cluster scheduling context, people often
+interesting NP-hard problem. In the cluster scheduling context, people often
 run into even more challenging variants, such as multi-dimensional packing. We
 found the study of the bin packing problem itself is sophisticated enough, and
 we are currently expanding it into a research paper.  Look in
